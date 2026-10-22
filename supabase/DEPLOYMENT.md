@@ -3,8 +3,8 @@
 ## 1. Connect Supabase
 
 1. Create a Supabase project and copy its Project URL, anon/public key, and service-role key into the matching entries in `.env.local`.
-2. Apply `migrations/202610060001_initial_store.sql` from Supabase **SQL Editor**, or link this folder to your project and run `supabase db push`.
-3. The migration creates the six store tables, RLS rules, the public QRIS bucket, the private payment-proof bucket, and starter games/products.
+2. Apply `migrations/202610060001_initial_store.sql` and `migrations/202610220001_review_photos.sql` from Supabase **SQL Editor**, or link this folder to your project and run `supabase db push`.
+3. The migrations create the store tables, RLS rules, storage buckets, starter games/products, and optional review photos.
 
 The starter dashboard has no default admin account. Create the first account in Supabase **Authentication → Users → Add user**, then authorize its email in SQL Editor:
 
@@ -24,6 +24,10 @@ npm run dev
 ```
 
 Store pages read active games and products from Supabase. Order creation loads the current active product price in a database function, records an order/payment, and returns a private order token. The customer then scans the active QRIS, uploads proof, and sees status updates. An admin confirms proof and may move the order through processing to completed. A completed order token can submit one review, which remains hidden until an admin publishes it.
+
+A game appears as available only after it has at least one active product with a QRIS image configured. The initial migration contains purchasable product rows only for Mobile Legends; enter each other game's real product names, amounts, prices, and QRIS image in `/admin` before making it available. Do not use preview prices as live prices.
+
+Customers can optionally attach one PNG, JPG, or WEBP photo (up to 2 MB) to a review. Photos use the public `review-photos` bucket and appear after the review is published.
 
 QRIS images are public so checkout can display them. Payment proofs are in a private bucket; admin requests use short-lived signed URLs. The service-role key is read by server-only route code and must never be added to `NEXT_PUBLIC_*` variables.
 

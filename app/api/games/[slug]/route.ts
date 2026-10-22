@@ -13,7 +13,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
 
     const { data: products, error: productsError } = await supabase
       .from('products').select('id,game_id,name,amount,bonus,price_idr,sort_order,qris_image_path')
-      .eq('game_id', game.id).eq('is_active', true).order('sort_order');
+      .eq('game_id', game.id).eq('is_active', true).not('qris_image_path', 'is', null).order('sort_order');
     if (productsError) throw productsError;
 
     const withQris = (products ?? []).map((product) => ({

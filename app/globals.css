@@ -32,3 +32,5 @@
 .account-page{padding-top:22px}
 .auth-page .account-topbar{position:absolute;top:0;left:0;right:0;min-height:74px;padding:0 clamp(18px,4vw,56px);border-bottom:1px solid #ffffff0c}
 @media(max-width:600px){.brand-logo-link{height:40px;max-width:42vw}.brand-logo-link img{height:38px}.brand-lockup{gap:9px}.brand-lockup .brand-caption,.brand-lockup .brand-divider{display:none}.account-topbar{min-height:58px;margin-bottom:27px}.account-page{padding:18px 16px 40px}.auth-page .account-topbar{min-height:64px}.footer-brand{gap:10px}}
+
+.review-photo{display:block;width:100%;max-height:230px;object-fit:cover;border-radius:12px;margin-top:12px;border:1px solid #ffffff15}.review-person .avatar{overflow:hidden}.review-photo-field{grid-column:1/-1;display:flex!important;align-items:center;gap:10px!important;flex-wrap:wrap}.review-photo-field input{max-width:100%;color:#c3bdcc}.review-photo-field small{color:#948ca0;font-size:8px}

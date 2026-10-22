@@ -5,3 +5,5 @@
 .loginBrand img{height:42px}
 .loginBack{position:static}
 @media(max-width:760px){.adminBrand{align-items:center;flex-direction:row;gap:8px;padding:0 4px 9px}.adminBrandLogo img{height:32px}.loginTopbar{height:64px}.loginBrand img{height:38px}.loginBack{position:static}}
+
+.reviewPhoto{width:100%;max-height:230px;object-fit:cover;border-radius:10px;margin:12px 0}
