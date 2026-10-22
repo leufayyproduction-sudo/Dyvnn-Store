@@ -1,0 +1,6 @@
+.price-row .game-topup-link{display:flex;align-items:center;justify-content:center;gap:7px;background:#8b5cf61c;border:1px solid #a37dea30;color:#cdb5fa;font-size:9px;padding:9px 10px;border-radius:7px;white-space:nowrap}
+.price-row .game-topup-link:hover{background:#8b5cf6;color:white;border-color:#8b5cf6}
+@media(max-width:1100px){.price-row .game-topup-link{width:100%}}
+@media(max-width:800px){.price-row .game-topup-link{width:auto}}
+@media(max-width:600px){.price-row .game-topup-link{font-size:8px;gap:3px;padding:8px}}
+@media(max-width:374px){.price-row .game-topup-link{width:100%}}
