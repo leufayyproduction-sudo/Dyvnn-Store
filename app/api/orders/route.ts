@@ -22,6 +22,12 @@ const orderErrors: Record<string, string> = {
 function getOrderErrorMessage(error: unknown) {
   const detail = getErrorMessage(error);
   const code = Object.keys(orderErrors).find((value) => detail.includes(value));
+  if (detail.includes('42702') || /column reference .* ambiguous/i.test(detail)) {
+    return { message: 'Fungsi order Supabase perlu diperbarui. Terapkan migrasi perbaikan create_store_order lalu deploy ulang website.', status: 503 };
+  }
+  if (detail.includes('PGRST202') || detail.includes('42883')) {
+    return { message: 'Fungsi order belum tersedia di Supabase. Terapkan seluruh migrasi terbaru lalu coba lagi.', status: 503 };
+  }
   return code ? { message: orderErrors[code], status: 409 } : null;
 }
 

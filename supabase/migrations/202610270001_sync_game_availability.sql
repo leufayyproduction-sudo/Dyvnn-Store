@@ -52,7 +52,9 @@ declare
   created_order public.orders%rowtype;
 begin
   select * into chosen_product from public.products
-  where products.id = p_product_id and is_active = true and qris_image_path is not null;
+  where products.id = p_product_id
+    and products.is_active = true
+    and products.qris_image_path is not null;
   if not found then raise exception 'PRODUCT_NOT_AVAILABLE'; end if;
   select * into chosen_game from public.games
   where games.id = chosen_product.game_id and games.is_active = true;

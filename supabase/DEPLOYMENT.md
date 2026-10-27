@@ -3,8 +3,8 @@
 ## 1. Connect Supabase
 
 1. Create a Supabase project and copy its Project URL, anon/public key, and service-role key into the matching entries in `.env.local`.
-2. Apply `migrations/202610060001_initial_store.sql`, `migrations/202610220001_review_photos.sql`, and `migrations/202610270001_sync_game_availability.sql` from Supabase **SQL Editor**, or link this folder to your project and run `supabase db push`.
-3. The migrations create the store tables, RLS rules, storage buckets, starter games/products, optional review photos, and automatic game availability based on active products with QRIS.
+2. Apply the migrations in timestamp order through `migrations/202610280001_fix_create_store_order.sql` from Supabase **SQL Editor**, or link this folder to your project and run `supabase db push`.
+3. The migrations create the store tables, RLS rules, storage buckets, starter games/products, optional review photos, automatic game availability based on active products with QRIS, and the order RPC fix.
 
 The starter dashboard has no default admin account. Create the first account in Supabase **Authentication → Users → Add user**, then authorize its email in SQL Editor:
 
