@@ -106,7 +106,7 @@ export default function GameDetailCheckout({
             <span className={styles.eyebrow}>PILIH PRODUK</span>
             <h2 id="products-heading">Paket {game.currency}</h2>
           </div>
-          <span className={styles.productCount}>{products.length} pilihan</span>
+          <span className={styles.productCount}>{liveProducts.length} pilihan</span>
         </div>
 
         <div className={styles.productList}>

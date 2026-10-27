@@ -17,7 +17,7 @@ export async function GET() {
       const gameReviews = (reviews ?? []).filter((review) => review.game_id === game.id);
       const cheapest = gameProducts.length ? Math.min(...gameProducts.map((product) => product.price_idr)) : null;
       const rating = gameReviews.length ? (gameReviews.reduce((total, review) => total + review.rating, 0) / gameReviews.length).toFixed(1) : '—';
-      return { ...game, available: game.status === 'active' && gameProducts.length > 0, rating, price: cheapest?.toLocaleString('id-ID') ?? '' };
+      return { ...game, available: gameProducts.length > 0, rating, price: cheapest?.toLocaleString('id-ID') ?? '' };
     });
     return NextResponse.json({ games: enriched });
   } catch (error) {

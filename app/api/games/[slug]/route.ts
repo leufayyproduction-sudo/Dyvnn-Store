@@ -7,7 +7,7 @@ export async function GET(_request: Request, { params }: { params: Promise<{ slu
     const supabase = await createClient();
     const { data: game, error: gameError } = await supabase
       .from('games').select('id,slug,name,publisher,category,currency,image_url,accent_color,is_active,status,description')
-      .eq('slug', slug).eq('is_active', true).eq('status', 'active').maybeSingle();
+      .eq('slug', slug).eq('is_active', true).maybeSingle();
     if (gameError) throw gameError;
     if (!game) return NextResponse.json({ error: 'Game tidak ditemukan.' }, { status: 404 });
 
